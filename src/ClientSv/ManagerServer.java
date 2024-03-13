@@ -26,6 +26,7 @@ public class ManagerServer extends javax.swing.JFrame {
         list  = new ArrayList<>();
         model = (DefaultTableModel) TblListAcc.getModel();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -214,7 +215,7 @@ public class ManagerServer extends javax.swing.JFrame {
                     .addComponent(BtnDeposit, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
                     .addComponent(jScrollPane1))
                 .addContainerGap())
         );
@@ -330,7 +331,7 @@ public class ManagerServer extends javax.swing.JFrame {
                     if (amount < 5000) {
                         JOptionPane.showMessageDialog(rootPane, "Số tiền quá nhỏ. Yêu cầu nhập số tiền lớn hơn 5000.");
                     } else {
-                        double timeToAdd = amount * 60 / 8000;
+                        double timeToAdd = 1.0 * amount * 60 / 8000 ;
                         s.setThoiGian(s.getThoiGian() + timeToAdd);
                         s.setDoanhThu(s.getDoanhThu() + amount);
                         model.setValueAt(s.getThoiGian(), i, 3); 
