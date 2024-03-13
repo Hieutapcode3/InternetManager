@@ -7,10 +7,7 @@ package ClientSv;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- *
- * @author DELL
- */
+
 public class Server extends Infor {
     double doanhthu;
     int idComputer;
@@ -22,11 +19,8 @@ public class Server extends Infor {
     public Server(String tenTK, String mkTK, double thoiGian, int point,int idUser,int idComputer,double doanhthu) {
         super(tenTK, mkTK, thoiGian, point,idUser);
         this.doanhthu = doanhthu;
-        this.idComputer = idComputer;
-        
-        
+        this.idComputer = idComputer;  
     }
-    
     public void taoTk(String tenTK,String mkTK){
         if(!tenTK.equals(getTenTK())){
             System.out.println("Ten tai khoan da ton tai. Vui long nhap lai!");
@@ -36,24 +30,18 @@ public class Server extends Infor {
             System.out.println("Tao tai khoan thanh cong!");
         }
     }
-    
       public double getDoanhThu() {
         return doanhthu;
     }
-
     public void setDoanhThu(double doanhThu) {
         this.doanhthu = doanhThu;
     }
-
-    // Getter and Setter for idMay
     public int getIdCom() {
         return idComputer;
     }
-
     public void setIdCom(int idMay) {
         this.idComputer = idMay;
     }
-    
     public void moMay(String tenTK,String mkTK){
         Scanner scanner = new Scanner(System.in);
         System.out.print("Nhap ten tai khoan: ");
@@ -70,13 +58,6 @@ public class Server extends Infor {
                 idComputer++;
                 System.out.print("Mo may thanh cong!");
             }
-        }
-        
-        if(getPoint() >= 20 ){
-            System.out.print("Ban duoc tang 1 chai nuoc!");
-            setPoint(getPoint() + 5);
-        } else {
-            setPoint(getPoint() + 5);
         }
     }
     
@@ -105,10 +86,17 @@ public class Server extends Infor {
             System.out.println("So tien nap vao qua nho");
         } else {
             System.out.print("Nap tien thanh cong");
-            double tgconthua = getThoiGian() + coin*60/8000;
+            double tgconthua = getThoiGian() + 1.0 * coin*60/8000;
             setThoiGian(tgconthua);
             setDoanhThu(getDoanhThu() + coin);
+            if(getPoint() >= 5 ){
+                System.out.print("Ban duoc tang 1 chai nuoc!");
+                setPoint(0);
+            } else {
+                setPoint(getPoint() + 1);
+            }
         }
+        
     }
     
     public void suaTaiKhoan(String tenTK,String mkTK){
@@ -130,16 +118,13 @@ public class Server extends Infor {
             System.out.println("Sua tai khoan thanh cong!");
         }
     }
-    
     public String tongKet(){
         return "Tong doanh thu: " + doanhthu;
     }
-    
     public String thongKe(){
         return "So luong may dang duoc su dung: " + idComputer +
                 "So luong may tinh con trong: " + (20-idComputer);
     }
-   
     public boolean timkiem(String tenTK){
         if (tenTK.equals(getTenTK())) {
             return true;
@@ -147,20 +132,11 @@ public class Server extends Infor {
             return false;
         }
     }
-    
-    /**
-     *
-     */
     @Override
     public void inThongTin(){
         System.out.println("Danh sách tài khoản:");
         for (Infor tk : danhSachTaiKhoan) {
             super.inThongTin();
         }
-    }
-     
-    
-    
-    
-    
+    }    
 }
