@@ -433,6 +433,10 @@ public class ManagerServer extends javax.swing.JFrame {
 
     private void BtnCreatAccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCreatAccActionPerformed
         boolean Useravail = false;
+        if(txtUser.getText().isEmpty() || txtPass.getText().isEmpty()){
+            JOptionPane.showMessageDialog(rootPane, "Tài khoản hoặc mật khẩu chưa được nhập!");
+            return;
+        }
         for (Server s : list) {
             if (s.getTenTK().equals(txtUser.getText())) {
                 Useravail = true;
